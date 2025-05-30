@@ -19,8 +19,10 @@ Instalar Django
 ### 1 Crear un nuevo proyecto Django
 
 Terminal:
+
     django-admin startproject DjangoCMS
-    cd DjangoCMS
+        
+    cd DjangoCMM
 
 ### 2 Crear una aplicación Django llamada cms
 
