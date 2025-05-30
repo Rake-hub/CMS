@@ -2,27 +2,34 @@
 Desarrollar un sistema de gestión de contenidos (CMS) desde cero utilizando el framework Django (Python)
 
 ---
+---
 
 # Pasos:
 
-## Necesario 
+## Requisitos previos 
 
 Instalar Visual Studio Code con la extensión de Python 
+
 Instalar Python
+
 Instalar Django
 
+---
 
 ## Parte 1
 
 ### 1 Crear un nuevo proyecto Django
 
 Terminal:
+
     django-admin startproject DjangoCMS
-    cd DjangoCMS
+        
+    cd DjangoCMM
 
 ### 2 Crear una aplicación Django llamada cms
 
 Terminal:
+
     python manage.py startapp cms
 
 Esto crea una carpeta cms/ con esta estructura:
@@ -38,6 +45,7 @@ cms/
 ### 3 Configurar la base de datos
 
 edita el archivo:
+
 DjangoCMS/settings.py, sección DATABASES
 
 DATABASES = {
@@ -67,6 +75,7 @@ INSTALLED_APPS = [
     'cms', 
 ]
 
+---
 
 ## Parte 2: Modelado de Datos
 
