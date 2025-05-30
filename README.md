@@ -8,7 +8,9 @@ Desarrollar un sistema de gestión de contenidos (CMS) desde cero utilizando el 
 ## Necesario 
 
 Instalar Visual Studio Code con la extensión de Python 
+
 Instalar Python
+
 Instalar Django
 
 
