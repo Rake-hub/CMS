@@ -2,6 +2,7 @@
 Desarrollar un sistema de gestión de contenidos (CMS) desde cero utilizando el framework Django (Python)
 
 ---
+---
 
 # Pasos:
 
@@ -73,6 +74,7 @@ INSTALLED_APPS = [
     'cms', 
 ]
 
+---
 
 ## Parte 2: Modelado de Datos
 
