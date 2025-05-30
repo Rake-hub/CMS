@@ -27,6 +27,7 @@ Terminal:
 ### 2 Crear una aplicación Django llamada cms
 
 Terminal:
+
     python manage.py startapp cms
 
 Esto crea una carpeta cms/ con esta estructura:
@@ -42,6 +43,7 @@ cms/
 ### 3 Configurar la base de datos
 
 edita el archivo:
+
 DjangoCMS/settings.py, sección DATABASES
 
 DATABASES = {
