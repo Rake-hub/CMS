@@ -70,3 +70,18 @@ INSTALLED_APPS = [
 
 ## Parte 2: Modelado de Datos
 
+### 1 Crear el modelo Articulo
+
+Modificar archivo cms/models.py
+
+### 2 Crear el modelo Categoria
+
+Modificar archivo cms/models.py
+
+### 3 Extender el modelo Usuario
+
+En cms/models.py
+
+### 4 Registrar modelos en el admin
+
+En cms/admin.py
