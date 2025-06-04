@@ -111,7 +111,6 @@ Ya hecho en Parte 2
 
 En admin.py modificar los modelos
 
-
 ### 3 Probar creación, edición y eliminación de artículos desde admin
 
-
+Ver png Articulo
