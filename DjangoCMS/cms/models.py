@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 # Models for a simple blog application
@@ -27,7 +27,10 @@ class Articulo(models.Model):
     contenido = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    #autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # Using the custom user model defined in settings.AUTH_USER_MODEL
+    # This allows for flexibility in user management
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     estado = models.CharField(max_length=10, choices=ESTADOS, default='borrador')
 

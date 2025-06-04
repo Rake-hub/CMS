@@ -94,3 +94,24 @@ En cms/models.py
 ### 4 Registrar modelos en el admin
 
 En cms/admin.py
+
+### 5 Realizar migraciones y probar el servidor
+
+Ver png servidor
+
+---
+
+## Parte 3: Panel de Administración
+
+### 1 Registrar modelos en admin.py
+
+Ya hecho en Parte 2
+
+### 2 Personalizar la vista del administrador para que sea más intuitiva
+
+En admin.py modificar los modelos
+
+
+### 3 Probar creación, edición y eliminación de artículos desde admin
+
+
