@@ -114,3 +114,25 @@ En admin.py modificar los modelos
 ### 3 Probar creación, edición y eliminación de artículos desde admin
 
 Ver png Articulo
+
+---
+
+## Parte 4: Interfaz Web Pública
+
+### 1 Crear vistas para:
+
+cms/views.py → Aquí crearemos las vistas
+
+cms/urls.py → Aquí registraremos las rutas
+
+Plantillas (templates): las crearemos para mostrar los datos
+
+#### Listado de artículos
+
+#### Detalle de cada artículo
+
+#### Artículos por categoría
+
+
+
+
