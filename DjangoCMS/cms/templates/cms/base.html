@@ -1,0 +1,10 @@
+<nav>
+    <a href="{% url 'lista_articulos' %}">Inicio</a>
+    {% if user.is_authenticated %}
+        <span>Hola, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Cerrar sesión</a>
+    {% else %}
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+        <a href="{% url 'registro' %}">Registrarse</a>
+    {% endif %}
+</nav>

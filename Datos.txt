@@ -13,6 +13,7 @@ python manage.py makemigrations
 python manage.py migrate
 
 
+cd DjangoCMS
 python manage.py runserver
 
 http://127.0.0.1:8000
@@ -26,6 +27,6 @@ Ctrl + c para detener el servidor
 Parte 1 Completado
 Parte 2 Completado
 Parte 3 Completado
-Parte 4 -
-Parte 5 
-Parte 6 
+Parte 4 Completado
+Parte 5 Completado
+Parte 6 -

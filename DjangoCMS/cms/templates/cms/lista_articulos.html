@@ -1,0 +1,11 @@
+<h1>Listado de Artículos</h1>
+<ul>
+    {% for articulo in articulos %}
+        <li>
+            <a href="{% url 'detalle_articulo' articulo.id %}">{{ articulo.titulo }}</a>
+            - {{ articulo.fecha_creacion }}
+        </li>
+    {% empty %}
+        <li>No hay artículos disponibles.</li>
+    {% endfor %}
+</ul>

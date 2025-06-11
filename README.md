@@ -120,19 +120,35 @@ Ver png Articulo
 ## Parte 4: Interfaz Web Pública
 
 ### 1 Crear vistas para:
+####    Listado de artículos
+####    Detalle de cada artículo
+####    Artículos por categoría
 
 cms/views.py → Aquí crearemos las vistas
 
-cms/urls.py → Aquí registraremos las rutas
+### 2 Crear templates HTML base.
 
 Plantillas (templates): las crearemos para mostrar los datos
+cms/templates/cms/nombre.html
 
-#### Listado de artículos
+### 3 Configurar URLs públicas.
 
-#### Detalle de cada artículo
+cms/urls.py → Aquí registraremos las rutas
 
-#### Artículos por categoría
+---
 
+## Parte 5: Autenticación de Usuarios
 
+### 1 Crear rutas para login, logout y registro de usuarios
 
+Django ya viene con LoginView y LogoutView incorporados.
 
+cms/urls.py
+
+### 2 Restringir edición y eliminación de artículos solo al autor o al admin
+
+cms/views.py
+
+### 3 Añadir navegación condicional según estado de autenticación
+
+templates/cms/base.html
