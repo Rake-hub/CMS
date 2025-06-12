@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -33,6 +34,7 @@ class Articulo(models.Model):
     # This allows for flexibility in user management
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     estado = models.CharField(max_length=10, choices=ESTADOS, default='borrador')
+    imagen = models.ImageField(upload_to='articulos/', null=True, blank=True)  # Images for articles
 
     def __str__(self):
         return self.titulo

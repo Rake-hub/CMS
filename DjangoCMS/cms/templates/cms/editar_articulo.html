@@ -1,0 +1,13 @@
+<h2>Editar artículo: {{ articulo.titulo }}</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar cambios</button>
+</form>
+
+{% if articulo.imagen %}
+    <p>Imagen actual:</p>
+    <img src="{{ articulo.imagen.url }}" width="300">
+{% endif %}
+
+<a href="{% url 'detalle_articulo' articulo.id %}">Cancelar</a>

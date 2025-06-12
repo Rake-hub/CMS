@@ -2,9 +2,11 @@ python manage.py shell
 
 #---
 
+# Sin imagen 
 
 from cms.models import Articulo, Categoria, Usuario
 from django.utils import timezone
+from django.core.files import File
 
 
 # Crear categorías (si no existen)
@@ -61,3 +63,43 @@ Articulo.objects.create(
     fecha_creacion=timezone.now(),
     fecha_actualizacion=timezone.now()
 )
+
+#---
+
+#Con imagen
+
+from cms.models import Articulo, Categoria, Usuario
+from django.utils import timezone
+from django.core.files import File
+import os
+
+# Ruta base del proyecto donde están guardadas las imágenes
+ruta = 'media/articulos/'
+
+# Cargar categorías
+camisetas = Categoria.objects.get(nombre="Camisetas")
+pantalones = Categoria.objects.get(nombre="Pantalones")
+zapatos = Categoria.objects.get(nombre="Zapatos")
+accesorios = Categoria.objects.get(nombre="Accesorios")
+
+# Usuario autor
+autor = Usuario.objects.get(username="Root")
+
+# Crear artículos con imagen
+def crear_articulo(titulo, contenido, categoria, imagen_nombre):
+    with open(os.path.join(ruta, imagen_nombre), 'rb') as img_file:
+        articulo = Articulo(
+            titulo=titulo,
+            contenido=contenido,
+            categoria=categoria,
+            autor=autor,
+            estado="publicado",
+            fecha_creacion=timezone.now(),
+            fecha_actualizacion=timezone.now()
+        )
+        articulo.imagen.save(imagen_nombre, File(img_file), save=True)
+
+crear_articulo("Camiseta básica de algodón", "Camiseta 100% algodón, disponible en varios colores.", camisetas, "camiseta.png")
+crear_articulo("Pantalón vaquero slim fit", "Vaqueros slim fit, perfectos para el día a día.", pantalones, "pantalon.png")
+crear_articulo("Zapatillas deportivas running", "Zapatillas ligeras, ideales para correr o caminar.", zapatos, "zapatillas.png")
+crear_articulo("Gorra estilo urbano", "Gorra ajustable estilo urbano, varios diseños disponibles.", accesorios, "gorra.png")
