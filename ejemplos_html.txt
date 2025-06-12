@@ -1,0 +1,63 @@
+python manage.py shell
+
+#---
+
+
+from cms.models import Articulo, Categoria, Usuario
+from django.utils import timezone
+
+
+# Crear categorías (si no existen)
+Categoria.objects.get_or_create(nombre="Camisetas")
+Categoria.objects.get_or_create(nombre="Pantalones")
+Categoria.objects.get_or_create(nombre="Zapatos")
+Categoria.objects.get_or_create(nombre="Accesorios")
+
+# Buscamos categorías y autor
+camisetas = Categoria.objects.get(nombre="Camisetas")
+pantalones = Categoria.objects.get(nombre="Pantalones")
+zapatos = Categoria.objects.get(nombre="Zapatos")
+accesorios = Categoria.objects.get(nombre="Accesorios")
+
+autor = Usuario.objects.get(username="Root") 
+
+# Creamos artículos
+Articulo.objects.create(
+    titulo="Camiseta básica de algodón",
+    contenido="Camiseta 100% algodón, disponible en varios colores.",
+    categoria=camisetas,
+    autor=autor,
+    estado="publicado",
+    fecha_creacion=timezone.now(),
+    fecha_actualizacion=timezone.now()
+)
+
+Articulo.objects.create(
+    titulo="Pantalón vaquero slim fit",
+    contenido="Vaqueros slim fit, perfectos para el día a día.",
+    categoria=pantalones,
+    autor=autor,
+    estado="publicado",
+    fecha_creacion=timezone.now(),
+    fecha_actualizacion=timezone.now()
+)
+
+Articulo.objects.create(
+    titulo="Zapatillas deportivas running",
+    contenido="Zapatillas ligeras, ideales para correr o caminar.",
+    categoria=zapatos,
+    autor=autor,
+    estado="publicado",
+    fecha_creacion=timezone.now(),
+    fecha_actualizacion=timezone.now()
+)
+
+Articulo.objects.create(
+    titulo="Gorra estilo urbano",
+    contenido="Gorra ajustable estilo urbano, varios diseños disponibles.",
+    categoria=accesorios,
+    autor=autor,
+    estado="publicado",
+    fecha_creacion=timezone.now(),
+    fecha_actualizacion=timezone.now()
+)
