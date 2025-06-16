@@ -1,18 +1,137 @@
-# CMS
-Desarrollar un sistema de gestión de contenidos (CMS) desde cero utilizando el framework Django (Python)
+# CMS en Django
+
+Este proyecto es un CMS (Sistema de Gestión de Contenidos) básico construido con Django, que permite a los usuarios crear, editar, visualizar y eliminar artículos clasificados por categorías.
+
+---
+
+## ¿Qué es un CMS?
+
+Un **CMS** (Content Management System) es una aplicación que permite a los usuarios crear, modificar, organizar y publicar contenido digital fácilmente, sin necesidad de conocimientos técnicos avanzados. Suelen incluir un panel de administración, control de usuarios, permisos y edición en línea.
+
+
+### Ejemplos populares de CMS
+
+**Open Source:**
+- WordPress
+- Joomla
+- Drupal
+- Ghost
+- Strapi
+
+**Privados / Comerciales:**
+- Webflow
+- Wix
+- Squarespace
+- Contentful
+- Shopify (para e-commerce)
+
+---
+
+## Modelo de datos
+
+### `Articulo`
+| Campo               | Tipo            | Descripción                         |
+|--------------------|-----------------|-------------------------------------|
+| `titulo`           | CharField       | Título del artículo                 |
+| `contenido`        | TextField       | Cuerpo del contenido                |
+| `fecha_creacion`   | DateTimeField   | Fecha en que se creó                |
+| `fecha_actualizacion` | DateTimeField | Última edición                      |
+| `autor`            | ForeignKey      | Usuario que creó el artículo        |
+| `categoria`        | ForeignKey      | Categoría asociada                  |
+| `estado`           | CharField       | Publicado / Borrador                |
+| `imagen`           | ImageField      | (opcional) Imagen destacada         |
+
+### `Categoria`
+| Campo      | Tipo        | Descripción               |
+|------------|-------------|---------------------------|
+| `nombre`   | CharField   | Nombre de la categoría    |
+| `slug`     | SlugField   | URL amigable              |
+
+### `UsuarioPersonalizado` (opcional)
+Extiende el modelo base de Django para personalización futura.
+
+---
+
+## ¿Cómo ejecutar el proyecto en local?
+
+1. Clona el repositorio:
+
+    ```bash
+    git clone https://github.com/tu_usuario/tu_repositorio.git
+    cd tu_repositorio
+
+2. Crea y activa un entorno virtual:
+    python -m venv env
+    source env/bin/activate  # Windows: env\Scripts\activate
+
+3. Instala dependencias:
+    pip install -r requirements.txt    
+
+4. Crea la base de datos y aplica migraciones:
+    python manage.py makemigrations
+    python manage.py migrate
+
+5. Crea un superusuario:
+    python manage.py createsuperuser
+
+6. Ejecuta el servidor:
+    python manage.py runserver
+
+7. Accede en tu navegador a: 
+    http://127.0.0.1:8000    
+
+
+## ¿Cómo desplegar en Railway?
+
+1. Sube tu proyecto a GitHub.
+
+2. Entra a https://railway.app y crea un nuevo proyecto.
+
+3. Elige Deploy from GitHub Repo y selecciona el tuyo.
+
+4. Railway detectará automáticamente el Procfile y comenzará el deploy.
+
+5. Añade las variables de entorno necesarias:
+
+VARIABLE	    VALOR
+SECRET_KEY	    Una clave segura
+DEBUG	        False
+DATABASE_URL	Railway la genera
+
+6. Añade PostgreSQL como plugin si no lo hace automáticamente.
+
+7. Accede al dominio que te asigna Railway para probar tu CMS en producción.
+
+
+
+## Usuario Demo
+
+Si quieres probar la versión desplegada, usa el siguiente acceso (si está habilitado):
+
+URL: https://tu-app.railway.app/admin/
+Usuario: demo_user
+Contraseña: demo1234
+
 
 ---
 ---
 
-# Pasos:
+
+# Proyecto explicado paso a paso:
 
 ## Requisitos previos 
 
-Instalar Visual Studio Code con la extensión de Python 
+Instalar Visual Studio
+https://code.visualstudio.com/
 
 Instalar Python
+En VS Code, abre la pestaña de extensiones (icono de cuadrados o Ctrl+Shift+X)
+Busca e instala "Python" (de Microsoft)
 
 Instalar Django
+pip install django
+django-admin --version
+
 
 ---
 
@@ -152,3 +271,62 @@ cms/views.py
 ### 3 Añadir navegación condicional según estado de autenticación
 
 templates/cms/base.html
+
+---
+
+## Parte 6: Despliegue del CMS
+
+### 1 Crear repositorio en GitHub
+
+Hecho
+https://github.com/Rake-hub/CMS
+
+### 2 Añadir requirements.txt y Procfile 
+
+Desde la raiz DjangoCMS
+
+pip freeze > requirements.txt
+
+touch Procfile
+
+web: gunicorn DjangoCMS.wsgi
+
+
+DjangoCMS/
+├── cms/                # app
+├── DjangoCMS/        # configuración Django
+├── manage.py
+├── requirements.txt    <-- lo acabamos de crear
+├── Procfile            <-- lo acabamos de crear
+
+
+### 3 Configurar variables de entorno (SECRET_KEY, DB, etc.)
+
+Dentro de Railway
+
+Entra a tu proyecto
+Ve a la pestaña "Variables" o "Environment"
+Ahí verás un botón “New Variable” o directamente una tabla editable
+
+### 4 Desplegar el proyecto en Railway
+
+Asegúrate de tener listo:
+
+    Tu proyecto Django funcionando localmente.
+
+    Un repositorio en GitHub con el código subido.
+
+    Un archivo requirements.txt generado
+
+Imagenes guardadas en png
+
+pip install gunicorn
+pip install dj-database-url
+pip install whitenoise
+
+pip freeze > requirements.txt
+Configurar settings.py
+
+
+
+### 5 Verificar funcionamiento en línea

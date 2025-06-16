@@ -29,4 +29,23 @@ Parte 2 Completado
 Parte 3 Completado
 Parte 4 Completado
 Parte 5 Completado
-Parte 6 -
+Parte 6 Completado
+
+---
+
+Desde la raiz DjangoCMS
+
+pip install gunicorn
+pip freeze > requirements.txt
+
+touch Procfile
+
+web: gunicorn DjangoCMS.wsgi
+
+
+DjangoCMS/
+├── cms/                # tu app
+├── DjangoCMS/        # tu configuración Django
+├── manage.py
+├── requirements.txt    <-- lo acabamos de crear
+├── Procfile            <-- lo acabamos de crear
