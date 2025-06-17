@@ -49,3 +49,9 @@ DjangoCMS/
 ├── manage.py
 ├── requirements.txt    <-- lo acabamos de crear
 ├── Procfile            <-- lo acabamos de crear
+
+
+---
+
+Secret key
+!^*hh(^7+=hn+75&3yp!($o$lx9)o*e5cnl5!lb@dr7qgxrqv1

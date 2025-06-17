@@ -308,6 +308,19 @@ Entra a tu proyecto
 Ve a la pestaña "Variables" o "Environment"
 Ahí verás un botón “New Variable” o directamente una tabla editable
 
+Nombre	Valor	Obligatoria	Descripción
+DEBUG	False	✅	Activa modo producción
+SECRET_KEY	⚠️ Genera uno seguro (ver abajo)	✅	Protege tu app
+DATABASE_URL	✅ Railway la genera automáticamente si usas PostgreSQL	✅	Conexión DB
+ALLOWED_HOSTS	* o tu dominio personalizado	✅	Permite conexiones externas
+CLOUDINARY_CLOUD_NAME	tu_cloud_name (si usas imágenes en Cloudinary)	❌	Para subir imágenes
+CLOUDINARY_API_KEY	1234567890	❌	API key Cloudinary
+CLOUDINARY_API_SECRET	a1b2c3d4e5f6	❌	API secret
+
+
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+
 ### 4 Desplegar el proyecto en Railway
 
 Asegúrate de tener listo:
