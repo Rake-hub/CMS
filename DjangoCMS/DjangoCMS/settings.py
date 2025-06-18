@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SEGURIDAD
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-vnmj7^r(whv#wfto4m*f*r8i&%#kde_^-mdim#@f3&u6h8$ut9'
-SECRET_KEY = os.getenv('SECRET_KEY', 'super-secret-key')
+SECRET_KEY = '!^*hh(^7+=hn+75&3yp!($o$lx9)o*e5cnl5!lb@dr7qgxrqv1'
+#SECRET_KEY = os.getenv('SECRET_KEY', 'super-secret-key')
 
 
 
@@ -88,19 +89,19 @@ WSGI_APPLICATION = 'DjangoCMS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""
 
+"""
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
