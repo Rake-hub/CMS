@@ -55,3 +55,10 @@ DjangoCMS/
 
 Secret key
 !^*hh(^7+=hn+75&3yp!($o$lx9)o*e5cnl5!lb@dr7qgxrqv1
+
+
+---
+
+static
+Whitenoise
+python manage.py collectstatic --noinput
